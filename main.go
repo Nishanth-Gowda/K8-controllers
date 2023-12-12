@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
 
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
@@ -22,18 +23,18 @@ func main() {
 
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
-		panic(err)
+		log.Fatalf("error %s building config from flags", err.Error())
 	}
 
 	clientSet, err := kubernetes.NewForConfig(config)
 	if err != nil {
-		panic(err)
+		log.Fatalf("error %s building config from flags", err.Error())
 	}
 
 	fmt.Println("Successfully created clientset")
 	pods, err := clientSet.CoreV1().Pods("default").List(context.TODO(), v1.ListOptions{})
 	if err != nil {
-		panic(err)
+		log.Fatalf("error %s building config from flags", err.Error())
 	}
 	fmt.Println("List of pods:")
 	fmt.Println("============")
@@ -43,7 +44,7 @@ func main() {
 
 	deployments, err := clientSet.AppsV1().Deployments("default").List(context.TODO(), v1.ListOptions{})
 	if err != nil {
-		panic(err)
+		log.Fatalf("error %s building config from flags", err.Error())
 	}
 	fmt.Println("List of deployments:")
 	fmt.Println("====================")
