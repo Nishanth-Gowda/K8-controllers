@@ -1,22 +1,7 @@
 # client-go basics
 
-Description of your project goes here.
-
-## Technologies Used
-
-- [Go](https://golang.org/)
-- [Kubernetes](https://kubernetes.io/)
-
-## Screenshots
-
-![Go Logo](https://golang.org/doc/gopher/frontpage.png)
-![Kubernetes Logo](https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.png)
+![Go Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/320px-Go_Logo_Blue.svg.png)
 
 ## Getting Started
 
-Follow these steps to get started with the project.
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+client-go is a typical web service client library that supports all API types that are officially part of Kubernetes. 
