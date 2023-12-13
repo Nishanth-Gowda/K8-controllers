@@ -36,19 +36,33 @@ func main() {
 	if err != nil {
 		log.Fatalf("error %s building config from flags", err.Error())
 	}
-	fmt.Println("List of pods:")
-	fmt.Println("============")
-	for _, pod := range pods.Items {
-		fmt.Println(pod.Name)
+
+
+	if len(pods.Items) == 0 {
+		fmt.Println("No pods found in default namespace.")
+	} else {
+		for _, pod := range pods.Items {
+			// Print the name of each pod
+			fmt.Println("List of pods:")
+			fmt.Println("============")
+			fmt.Println(pod.Name)
+		}
 	}
 
 	deployments, err := clientSet.AppsV1().Deployments("default").List(context.TODO(), v1.ListOptions{})
 	if err != nil {
 		log.Fatalf("error %s building config from flags", err.Error())
 	}
-	fmt.Println("List of deployments:")
-	fmt.Println("====================")
-	for _, deployment := range deployments.Items {
-		fmt.Println(deployment.Name)
+
+	if len(deployments.Items) == 0 {
+		fmt.Println("No deployments found in default namespace.")
+	} else {
+		for _, deployment := range deployments.Items {
+			// Print the name of each deployment
+			fmt.Println("List of deployments:")
+			fmt.Println("====================")
+			fmt.Println(deployment.Name)
+		}
+	
 	}
 }
